@@ -65,12 +65,13 @@ void MyDataStore::buycart(std::string username){
         cout << "Invalid username" << endl;
         return;
     }
-    vector<Product*> cart(item->second);
+    vector<Product*>& cart = item->second;
     User* user = users[username];
     size_t i = 0;
     while(i < cart.size()){
         if(cart[i]->getPrice() < user->getBalance() && cart[i]->getQty() > 0){
             user->deductAmount(cart[i]->getPrice());
+            cart[i]->subtractQty(1);
             cart.erase(cart.begin() + i);
         } else{
             i ++;
