@@ -88,7 +88,7 @@ void MyDataStore::viewcart(std::string username){
     vector<Product*> cart(item->second);
 
     for(size_t i = 0; i < cart.size(); ++ i){
-        cout << i + 1 << ": " << cart[i]->displayString() << endl;
+        cout << "Item " << i + 1 << endl << cart[i]->displayString() << endl;
     }
 }
 

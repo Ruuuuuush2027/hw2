@@ -9,7 +9,11 @@ set<string> Movie::keywords() const{
     for(i = temp.begin(); i != temp.end(); ++ i)
         res.insert(*i);
     
-    res.insert(genre_);
+    string str("");
+    for(size_t i = 0; i < genre_.size(); i ++)
+        str += tolower(genre_[i]);
+
+    res.insert(str);
     return res;
 }
 
